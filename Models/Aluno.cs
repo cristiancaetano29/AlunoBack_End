@@ -16,7 +16,7 @@ namespace ProjetoEscola_API.Models
         [StringLength(30, ErrorMessage ="O campo nome não pode passar de 30 digitos")]
         public string? nome { get; set; }
         [Required]
-        [Range(0, 3, ErrorMessage = "Campo deve ter 2(dois) caracteres")]
+        //[Range(0, 3, ErrorMessage = "Campo deve ter 2(dois) caracteres")]
         public int codCurso { get; set; }
     }
 }

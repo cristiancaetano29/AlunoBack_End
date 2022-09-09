@@ -54,7 +54,7 @@ namespace ProjetoEscola_API.Controllers
 
         //Deletando um Aluno do Banco passando o id
         [HttpPut("{AlunoId}")]
-        public async Task<ActionResult> put (int AlunoId, Aluno dadosAlunoAlt){
+        public async Task<IActionResult> put (int AlunoId, Aluno dadosAlunoAlt){
             try{
                 var result = await _context.Aluno.FindAsync(AlunoId);
                 if(AlunoId != result.id)
