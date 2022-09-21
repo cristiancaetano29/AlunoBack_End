@@ -24,5 +24,6 @@ namespace ProjetoEscola_API.Data
         }*/
 
         public DbSet<Aluno> Aluno { get; set; }
+        public DbSet<Curso> Curso { get; set; }
     }
 }
