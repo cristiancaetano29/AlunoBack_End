@@ -48,7 +48,7 @@ namespace ProjetoEscola_API.Controllers
                 result.nomeCurso = newDataCourse.nomeCurso;
                 result.periodo = newDataCourse.periodo;
                 await _context.SaveChangesAsync();
-                return Created($"/api/aluno/{newDataCourse.codCurso}", newDataCourse);
+                return Created($"/api/curso/{newDataCourse.codCurso}", newDataCourse);
             }
             catch{
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha ao Tentar Acessar o Banco de Dados");
