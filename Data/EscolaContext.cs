@@ -13,7 +13,7 @@ namespace ProjetoEscola_API.Data
         public EscolaContext(DbContextOptions<EscolaContext> options) : base (options){
 
         } 
-        /*protected readonly IConfiguration Configuration;
+        protected readonly IConfiguration Configuration;
 
         public EscolaContext(IConfiguration configuration){
             Configuration = configuration;
@@ -21,9 +21,10 @@ namespace ProjetoEscola_API.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) {
             options.UseSqlServer(Configuration.GetConnectionString("StringConexaoSQLServer"));
-        }*/
+        }
 
         public DbSet<Aluno> Aluno { get; set; }
         public DbSet<Curso> Curso { get; set; }
+        public DbSet<User>? Usuario { get; set; }
     }
 }
