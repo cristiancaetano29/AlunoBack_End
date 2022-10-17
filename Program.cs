@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
 ConfigurationManager configuration = builder.Configuration;
 
 //Criando o CORS
@@ -23,15 +24,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<EscolaContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("StringConexaoSQLServer"));
-});
-
-//JWT 
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -52,32 +44,28 @@ builder.Services.AddAuthentication(options =>
     SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
     };
 });
-
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+// Add DbContext
+builder.Services.AddDbContext<EscolaContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("StringConexaoSQLServer"));
+});
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 //app.UseHttpsRedirection();
 
-//Fazendo o App usar o CORS
+//Allow CORS
 app.UseCors(MyAllowSpecificOrigins);
 
+app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseAuthorization();
-app.UseAuthorization();
-
-
 app.MapControllers();
-
 app.Run();
-
-
-
-
-
