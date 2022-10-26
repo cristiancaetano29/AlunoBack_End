@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "2XjWS9zzrKlErbBGxS5vMOhxgxg/NudmF9MUvNYqmgY=",
+  "Hash": "kCi1YrTA8IbMtmkMY8PtaAyceeF/kPhQbWUr0u+Qcig=",
   "Source": "ProjetoEscola_API",
   "BasePath": "_content/ProjetoEscola_API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProjetoEscola_API/wwwroot",
+      "Source": "ProjetoEscola_API",
+      "ContentRoot": "/Users/u21724/Documents/ProjetoEscola_API/wwwroot/",
+      "BasePath": "_content/ProjetoEscola_API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

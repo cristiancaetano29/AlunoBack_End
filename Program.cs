@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using ProjetoEscola_API.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Serialization;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,7 +48,6 @@ builder.Services.AddAuthentication(options =>
     };
 });
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Add DbContext
